@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container" style="font-size: 18px;">
     <div>
         Directorio de empresas <span class="badge badge-pill" style="border: 1px solid red;">Agregar empresa</span>
     </div>
@@ -16,5 +16,11 @@
 
     <div *ngFor="let item of pagedItems;">
         <p><img [src]="item.url" alt="">{{item.name}} - {{item.user}} - {{item.date}} - {{item.users}} - {{item.publications}} - {{item.credits}}</p>
+    </div>
+
+    <div>
+        {{pager.startIndex + 1 }} - {{pager.endIndex + 1}} de {{pager.totalItems}}
+        <a [ngClass]="{disabled:pager.currentPage === 1}" (click)="setPage(pager.currentPage - 1)">&#60;</a>
+        <a [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)">&#62;</a>
     </div>
 </div>
